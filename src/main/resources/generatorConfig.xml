@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--指定 JDBC 驱动程序的位置(使用maven依赖不需要)-->
+    <!--<classPathEntry location="/Program Files/IBM/SQLLIB/java/db2java.zip" />-->
+
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+
+        <!--type属性 自定义实现CommentGenerator接口，生成带注释的实体类-->
+        <commentGenerator type="com.example.MyCommentGenerator">
+        </commentGenerator>
+
+        <!--jdbcConnection：指定连接的目标数据库-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/aiwriter?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- 默认false时，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer；为true时把JDBC DECIMAL 和
+         NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--javaModelGenerator：指定javaBean(实体类)的生成策略；targetPackage：目标包名；targetProject：目标工程-->
+        <javaModelGenerator targetPackage="com.mybatis.pojo" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--sqlMapGenerator：sql映射生成策略-->
+        <sqlMapGenerator targetPackage="com.mybatis.mapper" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--javaClientGenerator：指定mapper接口所在位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mybatis.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--指定要逆向分析的表：根据表创建javaBean-->
+        <table tableName="personal_index" domainObjectName="PersonalIndex"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+
+    </context>
+</generatorConfiguration>

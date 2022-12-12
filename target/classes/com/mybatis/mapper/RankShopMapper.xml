@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.mapper.RankShopMapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.pojo.RankShop">
+    <result column="item_cate_cd" jdbcType="INTEGER" property="itemCateCd" />
+    <result column="item_cate_name" jdbcType="VARCHAR" property="itemCateName" />
+    <result column="cate_level" jdbcType="INTEGER" property="cateLevel" />
+    <result column="shop_id" jdbcType="VARCHAR" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="rank" jdbcType="INTEGER" property="rank" />
+    <result column="rank_ratio" jdbcType="VARCHAR" property="rankRatio" />
+    <result column="index_ratio" jdbcType="VARCHAR" property="indexRatio" />
+    <result column="industry_avg" jdbcType="VARCHAR" property="industryAvg" />
+    <result column="exp_comp" jdbcType="VARCHAR" property="expComp" />
+    <result column="quality_score" jdbcType="VARCHAR" property="qualityScore" />
+    <result column="index_list" jdbcType="VARCHAR" property="indexList" />
+    <result column="trend_list" jdbcType="VARCHAR" property="trendList" />
+    <result column="score_list" jdbcType="VARCHAR" property="scoreList" />
+    <result column="dt" jdbcType="DATE" property="dt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.mybatis.pojo.RankShop">
+    insert into rank_shop (item_cate_cd, item_cate_name, cate_level, 
+      shop_id, shop_name, time, 
+      rank, rank_ratio, index_ratio, 
+      industry_avg, exp_comp, quality_score, 
+      index_list, trend_list, score_list, 
+      dt)
+    values (#{itemCateCd,jdbcType=INTEGER}, #{itemCateName,jdbcType=VARCHAR}, #{cateLevel,jdbcType=INTEGER}, 
+      #{shopId,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=INTEGER}, #{rankRatio,jdbcType=VARCHAR}, #{indexRatio,jdbcType=VARCHAR}, 
+      #{industryAvg,jdbcType=VARCHAR}, #{expComp,jdbcType=VARCHAR}, #{qualityScore,jdbcType=VARCHAR}, 
+      #{indexList,jdbcType=VARCHAR}, #{trendList,jdbcType=VARCHAR}, #{scoreList,jdbcType=VARCHAR}, 
+      #{dt,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybatis.pojo.RankShop">
+    insert into rank_shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemCateCd != null">
+        item_cate_cd,
+      </if>
+      <if test="itemCateName != null">
+        item_cate_name,
+      </if>
+      <if test="cateLevel != null">
+        cate_level,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="rank != null">
+        rank,
+      </if>
+      <if test="rankRatio != null">
+        rank_ratio,
+      </if>
+      <if test="indexRatio != null">
+        index_ratio,
+      </if>
+      <if test="industryAvg != null">
+        industry_avg,
+      </if>
+      <if test="expComp != null">
+        exp_comp,
+      </if>
+      <if test="qualityScore != null">
+        quality_score,
+      </if>
+      <if test="indexList != null">
+        index_list,
+      </if>
+      <if test="trendList != null">
+        trend_list,
+      </if>
+      <if test="scoreList != null">
+        score_list,
+      </if>
+      <if test="dt != null">
+        dt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemCateCd != null">
+        #{itemCateCd,jdbcType=INTEGER},
+      </if>
+      <if test="itemCateName != null">
+        #{itemCateName,jdbcType=VARCHAR},
+      </if>
+      <if test="cateLevel != null">
+        #{cateLevel,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="rankRatio != null">
+        #{rankRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="indexRatio != null">
+        #{indexRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="industryAvg != null">
+        #{industryAvg,jdbcType=VARCHAR},
+      </if>
+      <if test="expComp != null">
+        #{expComp,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityScore != null">
+        #{qualityScore,jdbcType=VARCHAR},
+      </if>
+      <if test="indexList != null">
+        #{indexList,jdbcType=VARCHAR},
+      </if>
+      <if test="trendList != null">
+        #{trendList,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreList != null">
+        #{scoreList,jdbcType=VARCHAR},
+      </if>
+      <if test="dt != null">
+        #{dt,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.mybatis.pojo.RankShop">
+    <result column="item_cate_cd" jdbcType="INTEGER" property="itemCateCd" />
+    <result column="item_cate_name" jdbcType="VARCHAR" property="itemCateName" />
+    <result column="cate_level" jdbcType="INTEGER" property="cateLevel" />
+    <result column="shop_id" jdbcType="VARCHAR" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="rank" jdbcType="INTEGER" property="rank" />
+    <result column="rank_ratio" jdbcType="VARCHAR" property="rankRatio" />
+    <result column="index_ratio" jdbcType="VARCHAR" property="indexRatio" />
+    <result column="industry_avg" jdbcType="VARCHAR" property="industryAvg" />
+    <result column="exp_comp" jdbcType="VARCHAR" property="expComp" />
+    <result column="quality_score" jdbcType="VARCHAR" property="qualityScore" />
+    <result column="index_list" jdbcType="VARCHAR" property="indexList" />
+    <result column="trend_list" jdbcType="VARCHAR" property="trendList" />
+    <result column="score_list" jdbcType="VARCHAR" property="scoreList" />
+    <result column="dt" jdbcType="DATE" property="dt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.mybatis.pojo.RankShop">
+    insert into rank_shop (item_cate_cd, item_cate_name, cate_level, 
+      shop_id, shop_name, time, 
+      rank, rank_ratio, index_ratio, 
+      industry_avg, exp_comp, quality_score, 
+      index_list, trend_list, score_list, 
+      dt)
+    values (#{itemCateCd,jdbcType=INTEGER}, #{itemCateName,jdbcType=VARCHAR}, #{cateLevel,jdbcType=INTEGER}, 
+      #{shopId,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=INTEGER}, #{rankRatio,jdbcType=VARCHAR}, #{indexRatio,jdbcType=VARCHAR}, 
+      #{industryAvg,jdbcType=VARCHAR}, #{expComp,jdbcType=VARCHAR}, #{qualityScore,jdbcType=VARCHAR}, 
+      #{indexList,jdbcType=VARCHAR}, #{trendList,jdbcType=VARCHAR}, #{scoreList,jdbcType=VARCHAR}, 
+      #{dt,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybatis.pojo.RankShop">
+    insert into rank_shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="itemCateCd != null">
+        item_cate_cd,
+      </if>
+      <if test="itemCateName != null">
+        item_cate_name,
+      </if>
+      <if test="cateLevel != null">
+        cate_level,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="rank != null">
+        rank,
+      </if>
+      <if test="rankRatio != null">
+        rank_ratio,
+      </if>
+      <if test="indexRatio != null">
+        index_ratio,
+      </if>
+      <if test="industryAvg != null">
+        industry_avg,
+      </if>
+      <if test="expComp != null">
+        exp_comp,
+      </if>
+      <if test="qualityScore != null">
+        quality_score,
+      </if>
+      <if test="indexList != null">
+        index_list,
+      </if>
+      <if test="trendList != null">
+        trend_list,
+      </if>
+      <if test="scoreList != null">
+        score_list,
+      </if>
+      <if test="dt != null">
+        dt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="itemCateCd != null">
+        #{itemCateCd,jdbcType=INTEGER},
+      </if>
+      <if test="itemCateName != null">
+        #{itemCateName,jdbcType=VARCHAR},
+      </if>
+      <if test="cateLevel != null">
+        #{cateLevel,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=INTEGER},
+      </if>
+      <if test="rankRatio != null">
+        #{rankRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="indexRatio != null">
+        #{indexRatio,jdbcType=VARCHAR},
+      </if>
+      <if test="industryAvg != null">
+        #{industryAvg,jdbcType=VARCHAR},
+      </if>
+      <if test="expComp != null">
+        #{expComp,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityScore != null">
+        #{qualityScore,jdbcType=VARCHAR},
+      </if>
+      <if test="indexList != null">
+        #{indexList,jdbcType=VARCHAR},
+      </if>
+      <if test="trendList != null">
+        #{trendList,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreList != null">
+        #{scoreList,jdbcType=VARCHAR},
+      </if>
+      <if test="dt != null">
+        #{dt,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+</mapper>
