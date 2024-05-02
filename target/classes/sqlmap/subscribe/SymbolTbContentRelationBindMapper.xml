@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jd.qmx.promotool.dao.sqlmap.subscribe.SymbolTbContentRelationBindMapper" >
+  <resultMap id="BaseResultMap" type="com.jd.qmx.promotool.model.subscribe.SymbolTbContentRelationBind" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="hash_key" property="hashKey" jdbcType="VARCHAR" />
+    <result column="entity_id" property="entityId" jdbcType="VARCHAR" />
+    <result column="third_classify_id" property="thirdClassifyId" jdbcType="INTEGER" />
+    <result column="symbol_id" property="symbolId" jdbcType="BIGINT" />
+    <result column="symbol_name" property="symbolName" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="VARCHAR" />
+    <result column="style_id" property="styleId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, hash_key, entity_id, third_classify_id, symbol_id, symbol_name, content_id, style_id, 
+    create_time, creator, modifier, modify_time, deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from bds_symbol_tb_content_relation_bind_1
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from bds_symbol_tb_content_relation_bind_1
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolTbContentRelationBind" >
+    insert into bds_symbol_tb_content_relation_bind_1 (id, hash_key, entity_id, 
+      third_classify_id, symbol_id, symbol_name, 
+      content_id, style_id, create_time, 
+      creator, modifier, modify_time, 
+      deleted)
+    values (#{id,jdbcType=BIGINT}, #{hashKey,jdbcType=VARCHAR}, #{entityId,jdbcType=VARCHAR}, 
+      #{thirdClassifyId,jdbcType=INTEGER}, #{symbolId,jdbcType=BIGINT}, #{symbolName,jdbcType=VARCHAR}, 
+      #{contentId,jdbcType=VARCHAR}, #{styleId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{modifier,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolTbContentRelationBind" >
+    insert into bds_symbol_tb_content_relation_bind_1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="hashKey != null" >
+        hash_key,
+      </if>
+      <if test="entityId != null" >
+        entity_id,
+      </if>
+      <if test="thirdClassifyId != null" >
+        third_classify_id,
+      </if>
+      <if test="symbolId != null" >
+        symbol_id,
+      </if>
+      <if test="symbolName != null" >
+        symbol_name,
+      </if>
+      <if test="contentId != null" >
+        content_id,
+      </if>
+      <if test="styleId != null" >
+        style_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="hashKey != null" >
+        #{hashKey,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null" >
+        #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdClassifyId != null" >
+        #{thirdClassifyId,jdbcType=INTEGER},
+      </if>
+      <if test="symbolId != null" >
+        #{symbolId,jdbcType=BIGINT},
+      </if>
+      <if test="symbolName != null" >
+        #{symbolName,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="styleId != null" >
+        #{styleId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolTbContentRelationBind" >
+    update bds_symbol_tb_content_relation_bind_1
+    <set >
+      <if test="hashKey != null" >
+        hash_key = #{hashKey,jdbcType=VARCHAR},
+      </if>
+      <if test="entityId != null" >
+        entity_id = #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdClassifyId != null" >
+        third_classify_id = #{thirdClassifyId,jdbcType=INTEGER},
+      </if>
+      <if test="symbolId != null" >
+        symbol_id = #{symbolId,jdbcType=BIGINT},
+      </if>
+      <if test="symbolName != null" >
+        symbol_name = #{symbolName,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="styleId != null" >
+        style_id = #{styleId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolTbContentRelationBind" >
+    update bds_symbol_tb_content_relation_bind_1
+    set hash_key = #{hashKey,jdbcType=VARCHAR},
+      entity_id = #{entityId,jdbcType=VARCHAR},
+      third_classify_id = #{thirdClassifyId,jdbcType=INTEGER},
+      symbol_id = #{symbolId,jdbcType=BIGINT},
+      symbol_name = #{symbolName,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=VARCHAR},
+      style_id = #{styleId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

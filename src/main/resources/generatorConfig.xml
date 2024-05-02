@@ -15,9 +15,9 @@
 
         <!--jdbcConnection：指定连接的目标数据库-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/aiwriter?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://localhost:3306/mydb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;useSSL=false"
                         userId="root"
-                        password="123456">
+                        password="qmhl19232506">
         </jdbcConnection>
 
         <!-- 默认false时，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer；为true时把JDBC DECIMAL 和
@@ -27,27 +27,29 @@
         </javaTypeResolver>
 
         <!--javaModelGenerator：指定javaBean(实体类)的生成策略；targetPackage：目标包名；targetProject：目标工程-->
-        <javaModelGenerator targetPackage="com.mybatis.pojo" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.jd.qmx.promotool.model.subscribe" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <!-- 从数据库返回的值被清理前后的空格 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!--sqlMapGenerator：sql映射生成策略-->
-        <sqlMapGenerator targetPackage="com.mybatis.mapper" targetProject="./src/main/resources">
+        <sqlMapGenerator targetPackage="sqlmap.subscribe" targetProject="./src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!--javaClientGenerator：指定mapper接口所在位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mybatis.mapper" targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jd.qmx.promotool.dao.sqlmap.subscribe" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!--指定要逆向分析的表：根据表创建javaBean-->
-        <table tableName="personal_index" domainObjectName="PersonalIndex"
+
+        <table tableName="symbol_submission_content_failure_record" domainObjectName="SymbolSubmissionContentFailureRecord"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
+
 
     </context>
 </generatorConfiguration>
