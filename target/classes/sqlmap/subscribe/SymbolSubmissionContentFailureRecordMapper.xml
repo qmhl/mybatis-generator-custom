@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jd.qmx.promotool.dao.sqlmap.subscribe.SymbolSubmissionContentFailureRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.jd.qmx.promotool.model.subscribe.SymbolSubmissionContentFailureRecord" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="entity_id" property="entityId" jdbcType="VARCHAR" />
+    <result column="symbol_id" property="symbolId" jdbcType="BIGINT" />
+    <result column="op_type" property="opType" jdbcType="INTEGER" />
+    <result column="message" property="message" jdbcType="VARCHAR" />
+    <result column="failure_reason" property="failureReason" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="VARCHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, entity_id, symbol_id, op_type, message, failure_reason, status, creator, create_time, 
+    modifier, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from symbol_submission_content_failure_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from symbol_submission_content_failure_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolSubmissionContentFailureRecord" >
+    insert into symbol_submission_content_failure_record (id, entity_id, symbol_id, 
+      op_type, message, failure_reason, 
+      status, creator, create_time, 
+      modifier, modify_time)
+    values (#{id,jdbcType=BIGINT}, #{entityId,jdbcType=VARCHAR}, #{symbolId,jdbcType=BIGINT}, 
+      #{opType,jdbcType=INTEGER}, #{message,jdbcType=VARCHAR}, #{failureReason,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolSubmissionContentFailureRecord" >
+    insert into symbol_submission_content_failure_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="entityId != null" >
+        entity_id,
+      </if>
+      <if test="symbolId != null" >
+        symbol_id,
+      </if>
+      <if test="opType != null" >
+        op_type,
+      </if>
+      <if test="message != null" >
+        message,
+      </if>
+      <if test="failureReason != null" >
+        failure_reason,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="entityId != null" >
+        #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="symbolId != null" >
+        #{symbolId,jdbcType=BIGINT},
+      </if>
+      <if test="opType != null" >
+        #{opType,jdbcType=INTEGER},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="failureReason != null" >
+        #{failureReason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolSubmissionContentFailureRecord" >
+    update symbol_submission_content_failure_record
+    <set >
+      <if test="entityId != null" >
+        entity_id = #{entityId,jdbcType=VARCHAR},
+      </if>
+      <if test="symbolId != null" >
+        symbol_id = #{symbolId,jdbcType=BIGINT},
+      </if>
+      <if test="opType != null" >
+        op_type = #{opType,jdbcType=INTEGER},
+      </if>
+      <if test="message != null" >
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="failureReason != null" >
+        failure_reason = #{failureReason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jd.qmx.promotool.model.subscribe.SymbolSubmissionContentFailureRecord" >
+    update symbol_submission_content_failure_record
+    set entity_id = #{entityId,jdbcType=VARCHAR},
+      symbol_id = #{symbolId,jdbcType=BIGINT},
+      op_type = #{opType,jdbcType=INTEGER},
+      message = #{message,jdbcType=VARCHAR},
+      failure_reason = #{failureReason,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

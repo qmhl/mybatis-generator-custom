@@ -45,7 +45,7 @@
 
         <!--指定要逆向分析的表：根据表创建javaBean-->
 
-        <table tableName="symbol_submission_content_failure_record" domainObjectName="SymbolSubmissionContentFailureRecord"
+        <table tableName="symbol_upload_record" domainObjectName="SymbolUploadRecord"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
